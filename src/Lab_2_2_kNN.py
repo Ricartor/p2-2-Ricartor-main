@@ -114,6 +114,9 @@ class knn:
             lista_resp = []
             for valor in clases_mas_cercanas_dict.values():
                 lista_resp.append(valor/self.k)
+            if len(lista_resp) == 1:
+                lista_resp.append(0)
+
 
             respuesta.append(lista_resp)
         respuesta = np.array(respuesta)
@@ -147,7 +150,7 @@ class knn:
         Hint:
             You might want to check the np.argsort function.
         """
-        
+
         indices_knn = np.argsort(distances)
         return indices_knn[0:self.k]
 
