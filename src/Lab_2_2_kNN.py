@@ -84,7 +84,7 @@ class knn:
                 labels_vecinos_mas_cercanos.append(self.y_train[indice])
             labels_vecinos_mas_cercanos = np.array(labels_vecinos_mas_cercanos)
             etiqueta_mas_comun.append(self.most_common_label(labels_vecinos_mas_cercanos))
-        etiqueta_mas_comun = np.array(etiqueta_mas_comun)
+        etiqueta_mas_comun = np.ndarray(etiqueta_mas_comun)
 
         return etiqueta_mas_comun
 
@@ -116,7 +116,7 @@ class knn:
                 lista_resp.append(valor/self.k)
 
             respuesta.append(lista_resp)
-        return np.array(respuesta)
+        return np.ndarray(respuesta)
 
 
     def compute_distances(self, point: np.ndarray) -> np.ndarray:
@@ -132,7 +132,7 @@ class knn:
         for i in range(0,len(self.x_train)):
             distancia = minkowski_distance(point,self.x_train[i])
             lista_distancias.append(distancia)
-        return np.array(lista_distancias)
+        return np.ndarray(lista_distancias)
 
     def get_k_nearest_neighbors(self, distances: np.ndarray) -> np.ndarray:
         """Get the k nearest neighbors indices given the distances matrix from a point.
@@ -275,9 +275,7 @@ def evaluate_classification_metrics(y_true, y_pred, positive_label):
     FP = 0
     TN = 0
     FN = 0
-    print(y_true_mapped)
-    print(y_pred_mapped)
-    print(len(y_true_mapped))
+
     for i in range(len(y_true_mapped)):
         valor_verd = y_true_mapped[i]
         valor_pred = y_pred_mapped[i]
@@ -291,8 +289,6 @@ def evaluate_classification_metrics(y_true, y_pred, positive_label):
                 TN += 1
             else:
                 FN += 1
-    print([TN, FP, FN, TP])
-    print(y_true,y_pred)
     accuracy = (TP + TN) / (TP + TN + FP + FN)
 
     # Precision
@@ -382,7 +378,6 @@ def plot_calibration_curve(y_true, y_probs, positive_label, n_bins=10):
     for i in range(0,n_bins):
         bin_centers.append((espacio/2+i*espacio))
     true_proportions = np.array(eje_y)
-    print(bin_centers)
     
     return {"bin_centers": bin_centers, "true_proportions": true_proportions}
 
