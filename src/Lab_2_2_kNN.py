@@ -117,7 +117,6 @@ class knn:
 
             respuesta.append(lista_resp)
         respuesta = np.array(respuesta)
-        print(respuesta)
         return respuesta
 
 
@@ -148,6 +147,7 @@ class knn:
         Hint:
             You might want to check the np.argsort function.
         """
+        
         indices_knn = np.argsort(distances)
         return indices_knn[0:self.k]
 
