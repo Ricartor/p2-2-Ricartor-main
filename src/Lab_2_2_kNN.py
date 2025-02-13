@@ -5,32 +5,6 @@ sns.set_theme()
 import numpy as np  
 import seaborn as sns
 
-def Divide(lista,izq,der):
-    i = izq
-    j = der
-    sublista = lista[izq:der+1]
-    pivote = np.median(sublista)
-    print(pivote)
-    while i < j:
-        while lista[i] < pivote:
-            i += 1
-        while lista[j] > pivote:
-            j -= 1
-        if i < j:
-            caja = lista[i]
-            lista[i] = lista[j]
-            lista[j] = caja 
-            i += 1
-            j -= 1
-    return lista,j
-
-def Quicksort(lista,izq,der):
-    if izq < der:
-        lista,lim = Divide(lista,izq,der)
-        Quicksort(lista,izq,lim)
-        Quicksort(lista,lim+1,der)
-    
-
 def minkowski_distance(a, b, p=2):
     """
     Compute the Minkowski distance between two arrays.
