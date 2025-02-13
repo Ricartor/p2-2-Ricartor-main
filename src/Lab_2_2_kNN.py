@@ -117,6 +117,7 @@ class knn:
 
             respuesta.append(lista_resp)
         respuesta = np.array(respuesta)
+        print(respuesta)
         return respuesta
 
 
