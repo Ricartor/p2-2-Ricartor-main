@@ -112,7 +112,6 @@ def test_knn_most_common_label(knn_instance):
     # Test majority label
     assert most_common == 1, "Majority label is incorrect."
 
-
 def test_evaluate_classification_metrics():
     # Test case 1: Standard binary classification
     y_true = np.array([1, 0, 1, 0, 1, 0])
