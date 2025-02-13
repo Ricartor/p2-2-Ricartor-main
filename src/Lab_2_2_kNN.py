@@ -84,7 +84,7 @@ class knn:
                 labels_vecinos_mas_cercanos.append(self.y_train[indice])
             labels_vecinos_mas_cercanos = np.array(labels_vecinos_mas_cercanos)
             etiqueta_mas_comun.append(self.most_common_label(labels_vecinos_mas_cercanos))
-        etiqueta_mas_comun = np.ndarray(etiqueta_mas_comun)
+        etiqueta_mas_comun = np.array(etiqueta_mas_comun)
 
         return etiqueta_mas_comun
 
@@ -116,7 +116,8 @@ class knn:
                 lista_resp.append(valor/self.k)
 
             respuesta.append(lista_resp)
-        return np.ndarray(respuesta)
+        respuesta = np.array(respuesta)
+        return respuesta
 
 
     def compute_distances(self, point: np.ndarray) -> np.ndarray:
@@ -132,7 +133,7 @@ class knn:
         for i in range(0,len(self.x_train)):
             distancia = minkowski_distance(point,self.x_train[i])
             lista_distancias.append(distancia)
-        return np.ndarray(lista_distancias)
+        return np.array(lista_distancias)
 
     def get_k_nearest_neighbors(self, distances: np.ndarray) -> np.ndarray:
         """Get the k nearest neighbors indices given the distances matrix from a point.
